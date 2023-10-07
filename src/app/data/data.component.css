@@ -1,0 +1,23 @@
+.shoeImage{
+  width: 90px;
+}
+.widthSize{
+  width: 140px;
+}
+.widthSizeButton{
+  width: 50px;
+  margin:auto;
+  
+  /* centering the text inside the button */
+  align-items:center;
+  justify-content:center;
+ 
+}
+.table td {
+  text-align: center;
+
+
+  /* centering the button */
+  align-items:center;
+  justify-content:center;
+  }

@@ -1,0 +1,65 @@
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
+    <tbody>
+      <tr>
+        <div class="container">
+          <th class="widthSize text-center align-middle" scope="row">
+            {{ data?.id }}
+          </th>
+          <td class="widthSize text-center align-middle">{{ data?.name }}</td>
+          <td class="widthSize text-center align-middle">{{ data?.brand }}</td>
+          <td class="widthSize text-center align-middle">{{ data?.color }}</td>
+          <td class="widthSize text-center align-middle">
+            P {{ data?.price }}
+          </td>
+
+          <td scope="col" class="widthSize text-center align-middle">
+            <img
+              src="{{ data?.imgPath }}"
+              class="img-fluid img-thumbnail shoeImage"
+            />
+          </td>
+
+          <td
+            *ngIf="data?.status == 'available'"
+            scope="col"
+            class="widthSize text-center align-middle"
+          >
+            <span class="badge badge-primary rounded-pill d-inline">{{
+              data?.status
+            }}</span>
+          </td>
+
+          <td
+            *ngIf="data?.status == 'out-of-stock'"
+            scope="col"
+            class="widthSize text-center align-middle"
+          >
+            <span class="badge badge-warning rounded-pill d-inline">{{
+              data?.status
+            }}</span>
+          </td>
+
+          <td class="align-middle widthSizeButton">
+            <div class="container align-middle">
+              <div class="col-sm-6">
+                <button
+                  class="btn btn-outline-info btn-sm align-middle"
+                  (click)="onEdit()"
+                >
+                  EDIT
+                </button>
+                <button
+                  class="btn btn-outline-danger btn-sm"
+                  (click)="onDelete()"
+                >
+                  DELETE
+                </button>
+              </div>
+            </div>
+          </td>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</div>

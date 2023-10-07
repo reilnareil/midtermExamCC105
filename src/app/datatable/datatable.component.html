@@ -1,0 +1,21 @@
+<h2>Products</h2>
+<table class="table table-bordered THwidthSize">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">##ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Color</th>
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+</table>
+
+<app-data
+  *ngFor="let data of listOfItems; let i = index"
+  [data]="data"
+  [index]="i"
+></app-data>

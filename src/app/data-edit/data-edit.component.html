@@ -1,0 +1,76 @@
+<h3 *ngIf="editMode == false">Add Item</h3>
+<h3 *ngIf="editMode == true">Edit Item</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label>ID</label>
+    <input
+      type="number"
+      class="form-control"
+      formControlName="id"
+      placeholder="id"
+    />
+  </div>
+  <div class="form-group">
+    <label>Name</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      placeholder="name"
+    />
+  </div>
+  <div class="form-group">
+    <label>Brand</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="brand"
+      placeholder="brand"
+    />
+  </div>
+  <div class="form-group">
+    <label>Color</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="color"
+      placeholder="color"
+    />
+  </div>
+  <div class="form-group">
+    <label>Price</label>
+    <input
+      type="number"
+      class="form-control"
+      formControlName="price"
+      placeholder="price"
+    />
+  </div>
+  <div class="form-group">
+    <label>Status</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="status"
+      placeholder="status"
+    />
+  </div>
+
+  <select formControlName="status">
+    <option>available</option>
+    <option>out-of-stock</option>
+  </select>
+
+  <div class="form-group">
+    <label>Image Path</label>
+    <input
+      type="text"
+      class="form-control"
+      formControlName="imgPath"
+      placeholder="image path"
+    />
+    <img class="img-fluid" src="{{ form.value.imgPath }}" />
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+  | <button type="clear" class="btn btn-danger">Clear</button>
+</form>
