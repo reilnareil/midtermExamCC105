@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataService } from '../data.service';
 import { Data } from '../data.model';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-data-edit',
@@ -10,6 +11,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./data-edit.component.css']
 })
 export class DataEditComponent implements OnInit {
+
   form!: FormGroup;
   index: number = 0;
   editMode = false;
@@ -18,7 +20,7 @@ export class DataEditComponent implements OnInit {
     private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    let id = NaN;
+    let uuid = uuidv4();
     let name = '';
     let brand = '';
     let color = '';
@@ -32,7 +34,7 @@ export class DataEditComponent implements OnInit {
         this.index = params['index'];
 
         const data = this.dataService.getDatum(this.index);
-        id = data.id;
+        uuid = uuidv4();
         name = data.name;
         brand = data.brand;
         color = data.color;
@@ -44,7 +46,7 @@ export class DataEditComponent implements OnInit {
     }
     );
     this.form = new FormGroup({
-      id: new FormControl(id, [Validators.required]),
+      uuid: new FormControl(uuid, [Validators.required]),
       name: new FormControl(name, [Validators.required]),
       brand: new FormControl(brand, [Validators.required]),
       color: new FormControl(color, [Validators.required]),
@@ -54,7 +56,7 @@ export class DataEditComponent implements OnInit {
     });
   }
   onSubmit() {
-    const id = this.form.value.id;
+    const uuid = this.form.value.uuid;
     const name = this.form.value.name;
     const brand = this.form.value.brand;
     const color = this.form.value.color;
@@ -63,7 +65,7 @@ export class DataEditComponent implements OnInit {
     const imgPath = this.form.value.imgPath;
 
     const data: Data = new Data(
-      id, name, brand, color, price, status, imgPath
+      uuid, name, brand, color, price, status, imgPath
     );
 
     if (this.editMode) {
@@ -74,5 +76,8 @@ export class DataEditComponent implements OnInit {
     }
     //navigate ti post-list
     this.router.navigate(["/datatable"])
+
+
   }
 }
+

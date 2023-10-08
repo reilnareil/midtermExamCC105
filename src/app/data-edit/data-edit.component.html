@@ -1,74 +1,98 @@
 <h3 *ngIf="editMode == false">Add Item</h3>
 <h3 *ngIf="editMode == true">Edit Item</h3>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label>ID</label>
+  <div *ngIf="editMode == true" class="form-floating mb-3">
     <input
       type="number"
       class="form-control"
-      formControlName="id"
+      formControlName="uuid"
       placeholder="id"
     />
+    <label>ID</label>
   </div>
-  <div class="form-group">
-    <label>Name</label>
+  <div class="form-floating mb-3">
     <input
       type="text"
       class="form-control"
       formControlName="name"
       placeholder="name"
     />
+    <label>Name</label>
   </div>
-  <div class="form-group">
-    <label>Brand</label>
-    <input
-      type="text"
-      class="form-control"
+  <div class="form-floating mb-3">
+    <select
+      class="form-select"
+      aria-label="Floating label select example"
       formControlName="brand"
-      placeholder="brand"
-    />
+    >
+      <optgroup label="US Brand">
+        <option selected>Nike</option>
+        <option>Jordan</option>
+        <option>Vans</option>
+        <option>Sketchers</option>
+        <option>Under Armour</option>
+        <option>New Balance</option>
+        <option>Converse</option>
+        <option>Crocs</option>
+      </optgroup>
+      <optgroup label="European Brand">
+        <option>Adidas</option>
+        <option>Puma</option>
+        <option>Rebook</option>
+        <option>Fila</option>
+        <option>Bata</option>
+      </optgroup>
+      <optgroup label="Chinese Brands">
+        <option>Anta</option>
+        <option>Li-Ning</option>
+        <option>Peak</option>
+        <option>361</option>
+        <option>Peak</option>
+        <option>Xtep</option>
+      </optgroup>
+    </select>
+    <label for="floatingSelect">Select Brand</label>
   </div>
-  <div class="form-group">
-    <label>Color</label>
+  <div class="form-floating mb-3">
     <input
       type="text"
       class="form-control"
       formControlName="color"
       placeholder="color"
     />
+
+    <label>Color</label>
   </div>
-  <div class="form-group">
-    <label>Price</label>
+  <div class="form-floating mb-3">
     <input
       type="number"
       class="form-control"
       formControlName="price"
       placeholder="price"
     />
+    <label>Price</label>
   </div>
-  <div class="form-group">
-    <label>Status</label>
-    <input
-      type="text"
-      class="form-control"
+
+  <div class="form-floating mb-3">
+    <select
+      class="form-select"
+      aria-label="Floating label select example"
       formControlName="status"
-      placeholder="status"
-    />
+    >
+      <option selected>available</option>
+      <option>out-of-stock</option>
+    </select>
+    <label for="floatingSelect">Select Status</label>
   </div>
 
-  <select formControlName="status">
-    <option>available</option>
-    <option>out-of-stock</option>
-  </select>
-
-  <div class="form-group">
-    <label>Image Path</label>
+  <div class="form-floating mb-3">
     <input
       type="text"
       class="form-control"
       formControlName="imgPath"
       placeholder="image path"
     />
+    <label>Image Path</label>
     <img class="img-fluid" src="{{ form.value.imgPath }}" />
   </div>
   <button type="submit" class="btn btn-primary">Save</button>

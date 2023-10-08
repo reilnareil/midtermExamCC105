@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { Data } from './data.model';
 
 
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class DataService {
 
   listOfItems: Data[] = [
     new Data(
-      18273,
+      '0be40d8b-746d-4f88-a8a0-04ebdd7e9896',
       'Air Jordan XXXVIII PF',
       'Jordan',
       'Red & Black',
@@ -16,7 +16,7 @@ export class DataService {
       'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/99d0eb30-f290-4b37-a124-51ccd23c6d1c/air-jordan-xxxviii-pf-basketball-shoes-tTRwfF.png'
     ),
     new Data(
-      31645,
+      '668d472e-04de-4e26-b456-f304f8700e6f',
       'Nike Airmax 1',
       'Nike',
       'Blue & White',
@@ -25,7 +25,7 @@ export class DataService {
       'https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/f7065c34-5e45-45ac-9ca6-a9eba20581ca/air-max-1-shoes-ZtQfN3.png'
     ),
     new Data(
-      18273,
+      '0be40d8b-746d-4f88-a8a0-04ebdd7e9896',
       'Run Falcon 3.0',
       'Adidas',
       'Black, Orange, & Blue',
@@ -35,19 +35,19 @@ export class DataService {
     ),
   ];
 
-  getAllData(){
+  getAllData() {
     return this.listOfItems;
   }
-  deleteData(index: number){
+  deleteData(index: number) {
     this.listOfItems.splice(index, 1);
   }
-  addItem(data: Data){
+  addItem(data: Data) {
     this.listOfItems.push(data);
   }
-  updateData(index: number, data: Data){
+  updateData(index: number, data: Data) {
     this.listOfItems[index] = data;
   }
-  getDatum(index: number){
+  getDatum(index: number) {
     return this.listOfItems[index];
   }
 

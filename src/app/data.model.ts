@@ -1,6 +1,6 @@
 export class Data {
   constructor(
-    public id: number,
+    public uuid: string,
     public name: string,
     public brand: string,
     public color: string,

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Data } from '../data.model';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-data',
@@ -16,6 +17,7 @@ export class DataComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    let uuid = uuidv4();
     console.log(this.data)
     console.log(this.index)
   }
@@ -25,5 +27,5 @@ export class DataComponent implements OnInit {
   onEdit() {
     this.router.navigate(["/data-edit", this.index])
   }
-  
+
 }
